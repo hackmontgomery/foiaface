@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
 <head>
-<title>FOIAFace - A Public Information Request Tool</title>
-<meta name="description" content="FOIAFace - A Tool for Making Public Information Requests to Maryland and Related Counties"</meta>
+<title>FOIAface - A Public Information Request Tool</title>
+<meta name="description" content="FOIAface - A Tool for Making Public Information Requests to Maryland and Related Counties"</meta>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="/static/foiaface/css/styles.css">
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
 
@@ -15,14 +16,9 @@
 </head>
 <body>
 {% block content %}
-
 {% endblock content %}
-
 {% block js %}
-
 {% endblock js %}
-
-
 <script type="text/javascript">
 $('select#jurisdiction').change(function(){
     var j_id = $(this).val();
@@ -31,11 +27,7 @@ $('select#jurisdiction').change(function(){
     $.get('/subdivisions/' + j_id, function(data){ 
         $('div#subdivisions').append(data);
     });
-
-    //$('div.form').show();
-
 });
 </script>
-
 </body>
 </html>
