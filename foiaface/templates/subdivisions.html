@@ -1,0 +1,9 @@
+<p>This jurisdiction has several subdivisions. If you know where your request  should be directed, select that subdivision from list below. If you don't know, simply select "I don't know".</p>
+
+<select>
+    <option value=""></option>
+    <option value="0">I Don't Know</option>
+    {% for s in subdivisions %}
+        <option value="{{s.id}}">{{s.name}}</option>
+    {% endfor %}
+</select>

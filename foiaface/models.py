@@ -3,7 +3,7 @@ from django.db import models
 class Jurisdiction(models.Model):
     name = models.CharField(max_length=255, null=False)
     contact = models.ForeignKey("Contact")
-    parent_jurisdition = models.ForeignKey("Jurisdiction", null=True, blank=True)
+    parent_jurisdiction = models.ForeignKey("Jurisdiction", null=True, blank=True)
 
     def __str__(self):
         return self.name

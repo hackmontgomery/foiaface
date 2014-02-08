@@ -1,51 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<style>
-.address { background-color: green;}
-</style>
 
-<h1>Welcome to FOIAFace!</h1>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">FOIAFace</a>
+        </div>
+</div>
 
-<h2>To make a Public Information Request, select a jurisdiction below:</h2>
 
-<div class="content">
-    <select id="jurisdiction">
-        {% for j in jurisdictions %}
-            <option value="{{j.id}}">{{j.title}}</option>
-        {% endfor %}
-    </select>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome to FOIAFace!</h1>
+        <h2>To make a Public Information Request, select a jurisdiction below:</h2>
 
+        <select id="jurisdiction">
+                <option value=""></option>
+            {% for j in jurisdictions %}
+                <option value="{{j.id}}">{{j.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<div class="container">
+    <div id="subdivisions"></div>
     <div style="display:none;" class="form">
         <form action="/submit" method="POST">
-            <input type="hidden" name="jurisdiction" value="" />
+            <input id="jid" type="hidden" name="jurisdiction" value="" />
+
 
             <textarea name="letter">
-            <span class="address">
-            Mr. Freeman Information 
-            Executive Director
-            License Commission
-            110 First Street
-            Baltimore, Maryland 21200
-            </span>
+
 
             Dear Mr. Information: 
             This is a request under the Maryland Public Information Act, State Government
             Article §§10-611 to 630. I request all records in your custody and control pertaining to
             the following: 
             
-            (A) the denial by the Commission of the license or permit
-            to Wanda Know which occurred on December 1, 2010;
-            and 
-            (B) any studies, statistics, reports, recommendations, or
-            other records that treat in any fashion the
-            Commission's actions, practices, or procedures
-            concerning the granting or denial of licenses or
-            permits during the last three fiscal years.
-            If all or any part of this request is denied, I request that I be provided with a
-            written statement of the grounds for the denial. If you determine that some portions of
-            the requested records are exempt from disclosure, please provide me with the portions
-            that can be disclosed. 
 
 
             Please advise me as to the cost, if any, for inspecting the records described above. 
