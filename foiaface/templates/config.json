@@ -1,0 +1,25 @@
+{
+    "montgomery": {
+        "subdivisions": {
+            "mcps": {
+                "title": "Montgomery County Public Schools",
+                "email": "pio@montgomerycountyschools.gov",
+            },
+            "mc": {
+                "title": "Montgomery County",
+                "email": "pio@montgomerycountymd.gov"
+            }
+
+        }
+    },
+
+    "maryland": {
+        "subdivisions": {
+            "state": {
+                "title": "Maryland State Government",
+                "email": "pio@maryland.gov"
+            }
+        }
+
+    }
+}
