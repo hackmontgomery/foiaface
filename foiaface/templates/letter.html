@@ -1,9 +1,11 @@
-<p>Dear Mr. Information:<p>
+<p>To: {{ jurisdiction.contact.first_name }} {{ jurisdiction.contact.last_name }} &lt;{{ jurisdiction.contact.email }}&gt;</p>
+<p>From: <span class="edit">your first name</span> <span class="edit">your last name</span> &lt;<span class="edit">your email address here</span>&gt;</p>
+<p>Dear {{ jurisdiction.contact.first_name }} {{ jurisdiction.contact.last_name }},<p>
 <p>This is a request under the Maryland Public Information Act, State Government
 Article §§10-611 to 630. I request all records in your custody and control pertaining to
 the following:</p> 
 
-<p>editable stuff that i want</p>
+<p class="edit">Enter the information that you are seeking here</p>
 
 <p>If all or any part of this request is denied, I request that I be provided with a
 written statement of the grounds for the denial. If you determine that some portions of
@@ -21,5 +23,4 @@ cooperation. If you have any questions regarding this request, please email me a
 
 <p>Sincerely,</p>
 
-<p><span>First Name</span><span>Last Name</span></p>
-<p>your email address here</p>
+<p><span class="edit">your first name</span><span class="edit">your last name</span></p>
