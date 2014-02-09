@@ -34,6 +34,13 @@ $('select#jurisdiction').change(function(){
         $('div#subdivisions').append(data);
     });
 });
+$('select#subdivision').change(function(){
+    var s_id = $(this).val();
+
+    $.get('/letter/', function(data){ 
+        $('div#subdivisions').append(data);
+    });
+});
 </script>
 </body>
 </html>
