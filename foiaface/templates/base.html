@@ -15,8 +15,9 @@
 
 <style>
     .left { width:55%; float:left;}
-    .right { width: 40%; float:right; padding: 10px; background-color: #efefef; -webkit-border-radius:8px; box-shadow: 3px 3px 2px #888888;}
+    .right { width: 40%; float:right; padding: 10px; background-color: #efefef; -webkit-border-radius:8px; box-shadow: 3px 3px 2px #B0AEAE;}
     .right h3 { margin-left: 20px;}
+    ul.sidebar li p {display: none;}
 </style>
 
 </head>
@@ -40,6 +41,10 @@ $('select#subdivision').change(function(){
     $.get('/letter/', function(data){ 
         $('div#subdivisions').append(data);
     });
+});
+
+$('ul.sidebar li a').click(function(){
+    $(this).siblings('p').show();
 });
 </script>
 </body>
