@@ -40,6 +40,16 @@
     }
 },
 {
+    "pk": 6, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "agency", 
+        "parent_jurisdiction": 4, 
+        "contact": 5, 
+        "name": "Agency"
+    }
+},
+{
     "pk": 1, 
     "model": "foiaface.contact", 
     "fields": {
@@ -64,6 +74,15 @@
         "first_name": "Maryland", 
         "last_name": "Attorney General", 
         "email": "oag@oag.state.md.us"
+    }
+},
+{
+    "pk": 5, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "Agency", 
+        "last_name": "Contact", 
+        "email": "contact@agency.maryland.gov"
     }
 }
 ]
