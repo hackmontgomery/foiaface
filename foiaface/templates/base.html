@@ -45,6 +45,10 @@ $('select#subdivision').change(function(){
 $('ul.sidebar li a').click(function(){
     $(this).siblings('p').toggle().end().siblings('ul').toggle();
 });
+
+ $(document).ready(function() {
+     $('.edit').editable('/request/');
+ });
 </script>
 </body>
 </html>
