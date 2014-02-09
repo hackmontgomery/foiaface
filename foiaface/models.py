@@ -1,17 +1,18 @@
 from django.db import models
 
+JURISDICTION_TYPES = (
+    ('county', 'County'),
+    ('agency', 'Agency'),
+)
+
 class Jurisdiction(models.Model):
     name = models.CharField(max_length=255)
     contact = models.ForeignKey("Contact")
     parent_jurisdiction = models.ForeignKey("Jurisdiction", null=True, blank=True)
+    jurisdiction_type = models.CharField(choices=JURISDICTION_TYPES, max_length=255)
 
     def __str__(self):
         return self.name
-
-
-class Agency(models.Model):
-    name = models.CharField(max_length=255)
-    contact = models.ForeignKey("Contact")
 
 
 class Contact(models.Model):
