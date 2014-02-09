@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <div class="jumbotron">
     <div class="container">
         <h1><img class="state_flag" src="/static/foiaface/images/flags/maryland_200.png"> Maryland</h1>
         <p>To make a Public Information Request, select a jurisdiction below:</p>
-
         <div class="row">
 	        <div class="col-md-3">
-		        <select id="jurisdiction" class="form-control">
+		        <select id="jurisdiction" class="form-control input-lg">
 		            <option value=""></option>
 		            {% for j in jurisdictions %}
 		                <option value="{{ j.id }}" data-child-count="{{ j.num_subjurisdictions }}">{{j.name}}</option>
@@ -57,7 +55,7 @@
 				console.log('loading letter:' + jurisdictionId);
 				var $option = $(this).find('option:selected');
 				$.get('/letter/' + jurisdictionId, function(data){
-					$('.the-letter').html(data);
+					$('.the-letter').html(data).show();
 				});
 			},
 			loadChildJurisdictions: function(jurisdictionId) {
@@ -77,17 +75,15 @@
 				var childCount = parseInt($option.attr('data-child-count'));
 				if (childCount > 0) {
 					MPIA.loadChildJurisdictions($option.val());
+					$('.the-letter').hide();
 				} else {
 					MPIA.loadLetter($option.val());
+					$('#subdivisions').empty();
 				}
 			});
-		});
-		$('.faq-item a').click(function() {
-			$(this).parent().siblings('p').show();
 		});
         $(document).ready(function() {
             $('.edit').editable('/request/');
         });
 	</script>
-    <script
 {% endblock %}

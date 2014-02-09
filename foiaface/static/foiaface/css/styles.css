@@ -5,4 +5,13 @@ ul.sidebar li p {display: none;}
 ul.sidebar li ul {display:none;}
 
 .faq-item { margin: 2em 0; }
-.faq-item p { display: none; }
+
+.the-letter {
+    border: 1px solid #ddd;
+    display: none;
+    font-size: 120%;
+    padding: 2em;
+}
+.the-letter p {
+    margin: 1.3em 0;
+}

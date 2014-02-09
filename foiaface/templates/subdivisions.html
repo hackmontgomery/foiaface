@@ -1,9 +1,14 @@
-<p>This jurisdiction has several subdivisions. If you know where your request should be directed, select that subdivision from list below. If you don't know, simply select "I don't know".</p>
-
-<select id="subdivision">
-    <option value=""></option>
-    {% for s in subdivisions %}
-        <option value="{{s.id}}">{{s.name}}</option>
-    {% endfor %}
-    <option value="0">I Don't Know</option>
-</select>
+<div class="alert alert-info">
+	<p style="margin-bottom: 10px;">This jurisdiction has several subdivisions. If you know where your request should be directed, select that subdivision from list below. If you don't know, simply select "I don't know".</p>
+	<div class="row">
+		<div class="col-md-6">
+			<select id="subdivision" class="form-control">
+			    <option value=""></option>
+			    {% for s in subdivisions %}
+			        <option value="{{s.id}}">{{s.name}}</option>
+			    {% endfor %}
+			    <option value="0">I Don't Know</option>
+			</select>
+		</div>
+	</div>
+</div>
