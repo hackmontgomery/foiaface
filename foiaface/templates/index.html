@@ -4,15 +4,19 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1><img class="state_flag" src="/static/foiaface/images/flags/maryland_200.png"> Maryland</h1>
-        <h2>To make a Public Information Request, select a jurisdiction below:</h2>
+        <h1><img class="state_flag" src="/static/foiaface/images/flags/maryland_200.png" style="height: 45px; margin-top: -12px;"> Maryland</h1>
+        <p>To make a Public Information Request, select a jurisdiction below:</p>
 
-        <select id="jurisdiction">
-                <option value=""></option>
-            {% for j in jurisdictions %}
-                <option value="{{j.id}}">{{j.name}}</option>
-            {% endfor %}
-        </select>
+        <div class="row">
+	        <div class="col-md-3">
+		        <select id="jurisdiction" class="form-control">
+		            <option value=""></option>
+		            {% for j in jurisdictions %}
+		                <option value="{{ j.id }}" data-child-count="{{ j.num_subjurisdictions }}">{{j.name}}</option>
+		            {% endfor %}
+		        </select>
+		    </div>
+	    </div>
     </div>
 </div>
 <div class="container">
@@ -26,21 +30,22 @@
                 <textarea name="letter">
 
 
-                Dear Mr. Information: 
+                Dear Mr. Information:
                 This is a request under the Maryland Public Information Act, State Government
                 Article §§10-611 to 630. I request all records in your custody and control pertaining to
-                the following: 
-                
+                the following:
 
 
-                Please advise me as to the cost, if any, for inspecting the records described above. 
+
+                Please advise me as to the cost, if any, for inspecting the records described above.
                 I anticipate that I will want copies of some or all of the records sought. If you have
                 adopted a fee schedule for obtaining copies of records and other rules or regulations
-                implementing the Act, please send me a copy. 
+                implementing the Act, please send me a copy.
 
                 I look forward to receiving disclosable records promptly and, in any event, to a
                 decision about all of the requested records within 30 days. Thank you for your
-                cooperation. If you have any questions regarding this request, please email me at the following email address: 
+                cooperation. If you have any questions regarding this request, please email me at the following email address:
+
 
                 </textarea>
             </form>
@@ -61,9 +66,9 @@
                     <li>An inmate's case file</li>
                     <li>Confidential tax records of an individual</li>
                 </ul>
-                
+
             </li>
         </ul>
     </div>
-</div>  
+</div>
 {% endblock %}
