@@ -23,8 +23,7 @@
     <div class="row">
     	<div class="col-md-8">
 	        <div id="subdivisions"></div>
-	        <div style="display:none;" class="form">
-	        </div>
+	        <div class="the-letter"></div>
 	    </div>
 	    <div class="col-md-4">
 	    	<div class="well sidebar">
@@ -58,7 +57,7 @@
 				console.log('loading letter:' + jurisdictionId);
 				var $option = $(this).find('option:selected');
 				$.get('/letter/' + jurisdictionId, function(data){
-					$('div#subdivisions').append(data);
+					$('.the-letter').html(data);
 				});
 			},
 			loadChildJurisdictions: function(jurisdictionId) {
@@ -90,5 +89,5 @@
             $('.edit').editable('/request/');
         });
 	</script>
-    <script 
+    <script
 {% endblock %}
