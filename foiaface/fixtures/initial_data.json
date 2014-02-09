@@ -45,8 +45,48 @@
     "fields": {
         "jurisdiction_type": "agency", 
         "parent_jurisdiction": 4, 
-        "contact": 5, 
-        "name": "Agency"
+        "contact": 6, 
+        "name": "Administrative Office of the Courts"
+    }
+},
+{
+    "pk": 7, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "agency", 
+        "parent_jurisdiction": 4, 
+        "contact": 7, 
+        "name": "Aging"
+    }
+},
+{
+    "pk": 8, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "agency", 
+        "parent_jurisdiction": 4, 
+        "contact": 8, 
+        "name": "Agriculture"
+    }
+},
+{
+    "pk": 9, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "state", 
+        "parent_jurisdiction": 4, 
+        "contact": 9, 
+        "name": "Automobile Insurance Fund"
+    }
+},
+{
+    "pk": 10, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "agency", 
+        "parent_jurisdiction": 4, 
+        "contact": 10, 
+        "name": "Budget & Management"
     }
 },
 {
@@ -83,6 +123,51 @@
         "first_name": "Agency", 
         "last_name": "Contact", 
         "email": "contact@agency.maryland.gov"
+    }
+},
+{
+    "pk": 6, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "Angelita", 
+        "last_name": "Plemmer Williams", 
+        "email": "Communications@mdcourts.gov"
+    }
+},
+{
+    "pk": 7, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "Gloria G.", 
+        "last_name": "Lawlah", 
+        "email": "sec@ooa.state.md.us"
+    }
+},
+{
+    "pk": 8, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "Vanessa A.", 
+        "last_name": "Orlando", 
+        "email": "vanessa.orlando@maryland.gov"
+    }
+},
+{
+    "pk": 9, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "M. Kent", 
+        "last_name": "Krabbe", 
+        "email": "kkrabbe@emaif.com"
+    }
+},
+{
+    "pk": 10, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "T. Eloise", 
+        "last_name": "Foster", 
+        "email": "eloise.foster@maryland.gov"
     }
 }
 ]
