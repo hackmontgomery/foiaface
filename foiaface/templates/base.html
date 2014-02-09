@@ -23,28 +23,8 @@
 
 {% block content %}
 {% endblock content %}
-{% block js %}
-{% endblock js %}
-<script type="text/javascript">
-$('select#jurisdiction').change(function(){
-    var j_id = $(this).val();
-    $('div.form').find('input#jid').val(j_id);
 
-    $.get('/subdivisions/' + j_id, function(data){ 
-        $('div#subdivisions').append(data);
-    });
-});
-$('select#subdivision').change(function(){
-    var s_id = $(this).val();
+{% block js %}{% endblock js %}
 
-    $.get('/letter/', function(data){ 
-        $('div#subdivisions').append(data);
-    });
-});
-
-$('ul.sidebar li a').click(function(){
-    $(this).siblings('p').toggle().end().siblings('ul').toggle();
-});
-</script>
 </body>
 </html>

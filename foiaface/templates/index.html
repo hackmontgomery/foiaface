@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1><img class="state_flag" src="/static/foiaface/images/flags/maryland_200.png" style="height: 45px; margin-top: -12px;"> Maryland</h1>
+        <h1><img class="state_flag" src="/static/foiaface/images/flags/maryland_200.png"> Maryland</h1>
         <p>To make a Public Information Request, select a jurisdiction below:</p>
 
         <div class="row">
@@ -20,55 +20,97 @@
     </div>
 </div>
 <div class="container">
-    <div class="left">
-        <div id="subdivisions"></div>
-        <div style="display:none;" class="form">
-            <form action="/submit" method="POST">
-                <input id="jid" type="hidden" name="jurisdiction" value="" />
+    <div class="row">
+    	<div class="col-md-8">
+	        <div id="subdivisions"></div>
+	        <div style="display:none;" class="form">
+	            <form action="/submit" method="POST">
+	                <input id="jid" type="hidden" name="jurisdiction" value="" />
 
 
-                <textarea name="letter">
+	                <textarea name="letter">
 
 
-                Dear Mr. Information:
-                This is a request under the Maryland Public Information Act, State Government
-                Article §§10-611 to 630. I request all records in your custody and control pertaining to
-                the following:
+	                Dear Mr. Information:
+	                This is a request under the Maryland Public Information Act, State Government
+	                Article §§10-611 to 630. I request all records in your custody and control pertaining to
+	                the following:
 
 
 
-                Please advise me as to the cost, if any, for inspecting the records described above.
-                I anticipate that I will want copies of some or all of the records sought. If you have
-                adopted a fee schedule for obtaining copies of records and other rules or regulations
-                implementing the Act, please send me a copy.
+	                Please advise me as to the cost, if any, for inspecting the records described above.
+	                I anticipate that I will want copies of some or all of the records sought. If you have
+	                adopted a fee schedule for obtaining copies of records and other rules or regulations
+	                implementing the Act, please send me a copy.
 
-                I look forward to receiving disclosable records promptly and, in any event, to a
-                decision about all of the requested records within 30 days. Thank you for your
-                cooperation. If you have any questions regarding this request, please email me at the following email address:
+	                I look forward to receiving disclosable records promptly and, in any event, to a
+	                decision about all of the requested records within 30 days. Thank you for your
+	                cooperation. If you have any questions regarding this request, please email me at the following email address:
 
 
-                </textarea>
-            </form>
-        </div>
-    </div>
-    <div class="right">
-        <h3>FAQs</h3>
-        <ul class="sidebar">
-            <li><a href="#">Where should I look first?</a>
-                <p>There are several data portals with Maryland and county level data in them. We recommend checking these resources for your desired data first. You can find a list <a href="{% url 'resources' %}">here</a></p>
-            </li>
-            <li><a href="#">What can I ask for?</a>
-                <p>The Maryland Public Information law allows you to file a request for all public records, with some exceptions. Here are a few examples of exceptions to the law:
-                </p>
-                <ul>
-                    <li>Records held or maintained by a private entity (ex. Homeowner's Association or Government Contractor)</li>
-                    <li>Medical information concerning an individual</li>
-                    <li>An inmate's case file</li>
-                    <li>Confidential tax records of an individual</li>
-                </ul>
-
-            </li>
-        </ul>
+	                </textarea>
+	            </form>
+	        </div>
+	    </div>
+	    <div class="col-md-4">
+	    	<div class="well sidebar">
+	    		<h3>FAQs</h3>
+	        	<div class="faq-item">
+		            <h4><a href="#">Where should I look first?</a></h4>
+		            <p>There are several data portals with Maryland and county level data in them. We recommend checking these resources for your desired data first. You can find a list <a href="{% url 'resources' %}">here</a></p>
+		        </div>
+		        <div class="faq-item">
+		        	<h4><a href="#">What can I ask for?</a></h4>
+		            <p>The Maryland Public Information law allows you to file a request for all public records, with some exceptions. Here are a few examples of exceptions to the law:</p>
+	                <p>
+		                <ul>
+		                    <li>Records held or maintained by a private entity (ex. Homeowner's Association or Government Contractor)</li>
+		                    <li>Medical information concerning an individual</li>
+		                    <li>An inmate's case file</li>
+		                    <li>Confidential tax records of an individual</li>
+		                </ul>
+		            </p>
+	            </div>
+	        </div>
+	    </div>
     </div>
 </div>
+{% endblock %}
+
+{% block js %}
+	<script>
+		var MPIA = {
+			loadLetter: function(jurisdictionId) {
+				console.log('loading letter:' + jurisdictionId);
+				var $option = $(this).find('option:selected');
+				$.get('/letter/' + jurisdictionId, function(data){
+					$('div#subdivisions').append(data);
+				});
+			},
+			loadChildJurisdictions: function(jurisdictionId) {
+				console.log('loading child jurisdictions:' + jurisdictionId);
+				$.get('/subdivisions/' + jurisdictionId, function(data){
+					$('div#subdivisions').append(data);
+					$('select#subdivision').change(function() {
+						var $option = $(this).find('option:selected');
+						MPIA.loadLetter($option.val());
+					});
+				});
+			}
+		};
+		$(document).ready(function() {
+			$('select#jurisdiction').change(function() {
+				var $option = $(this).find('option:selected');
+				var childCount = parseInt($option.attr('data-child-count'));
+				if (childCount > 0) {
+					MPIA.loadChildJurisdictions($option.val());
+				} else {
+					MPIA.loadLetter($option.val());
+				}
+			});
+		});
+		$('.faq-item a').click(function() {
+			$(this).parent().siblings('p').show();
+		});
+	</script>
 {% endblock %}

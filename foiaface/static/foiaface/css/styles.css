@@ -1,8 +1,8 @@
-.state_flag { height: 60px;}
+.state_flag { height: 45px; margin-top: -12px; }
 #letter { display: none; }
 
-.left { width:55%; float:left;}
-.right { width: 40%; float:right; padding: 10px; background-color: #efefef; -webkit-border-radius:8px; box-shadow: 3px 3px 2px #B0AEAE;}
-.right h3 { margin-left: 20px;}
 ul.sidebar li p {display: none;}
 ul.sidebar li ul {display:none;}
+
+.faq-item { margin: 2em 0; }
+.faq-item p { display: none; }
