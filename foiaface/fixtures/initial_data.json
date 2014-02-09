@@ -20,6 +20,26 @@
     }
 },
 {
+    "pk": 4, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "state", 
+        "parent_jurisdiction": null, 
+        "contact": 4, 
+        "name": "State of Maryland"
+    }
+},
+{
+    "pk": 5, 
+    "model": "foiaface.jurisdiction", 
+    "fields": {
+        "jurisdiction_type": "county", 
+        "parent_jurisdiction": 1, 
+        "contact": 1, 
+        "name": "Montgomery County Executive"
+    }
+},
+{
     "pk": 1, 
     "model": "foiaface.contact", 
     "fields": {
@@ -35,6 +55,15 @@
         "first_name": "Dana", 
         "last_name": "Tofig", 
         "email": "pio@mcpsmd.org"
+    }
+},
+{
+    "pk": 4, 
+    "model": "foiaface.contact", 
+    "fields": {
+        "first_name": "Maryland", 
+        "last_name": "Attorney General", 
+        "email": "oag@oag.state.md.us"
     }
 }
 ]
