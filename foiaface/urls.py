@@ -6,5 +6,6 @@ urlpatterns = patterns('',
     url(r'^$', 'foiaface.views.home', name='home'),
     url(r'^letter/(?P<jurisdiction>\d+)/$', 'foiaface.views.letter', name='letter'),
     url(r'^subdivisions/(?P<parent>\d+)/$', 'foiaface.views.subdivisions', name='subdivisions'),
+    url(r'^resources/$', 'foiaface.views.resources', name='resources'),
     url(r'^admin/', include(admin.site.urls)),
 )

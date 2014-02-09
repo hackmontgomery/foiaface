@@ -16,3 +16,6 @@ def subdivisions(request, parent):
             {'subdivisions': subdivisions})
     else:
         return render_to_response('letter.html', {'jurisdiction':parent})
+
+def resources(request):
+    return render_to_response('resources.html')
