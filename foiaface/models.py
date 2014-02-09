@@ -9,7 +9,7 @@ JURISDICTION_TYPES = (
 class Jurisdiction(models.Model):
     name = models.CharField(max_length=255)
     contact = models.ForeignKey("Contact")
-    parent_jurisdiction = models.ForeignKey("Jurisdiction", null=True, blank=True)
+    parent_jurisdiction = models.ForeignKey("Jurisdiction", related_name='children', null=True, blank=True)
     jurisdiction_type = models.CharField(choices=JURISDICTION_TYPES, max_length=255)
 
     def __str__(self):
