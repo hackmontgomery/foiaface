@@ -3,6 +3,7 @@ from django.db import models
 JURISDICTION_TYPES = (
     ('county', 'County'),
     ('agency', 'Agency'),
+    ('state', 'State'),
 )
 
 class Jurisdiction(models.Model):
